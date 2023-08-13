@@ -13,5 +13,5 @@ type Deck struct {
 	CreatedAt   time.Time `gorm:"not null" json:"-"`
 	UpdatedAt   time.Time `gorm:"not null" json:"-"`
 	NmUserDecks []NmUserDeck
-	Decks       []Deck
+	Cards       []Card
 }
