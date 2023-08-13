@@ -9,10 +9,10 @@ import (
 type Card struct {
 	gorm.Model
 	ID        uint   `orm:"primaryKey;not null" json:"id"`
-	TypeCard  string `orm:"column:type_card;size:255;not null" json:"type_card"`
-	Mode      string `orm:"size:255" json:"mode"`
+	Front     string `gorm:"not null" json:"front"`
+	Back      string `gorm:"not null" json:"back"`
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeckID    uint
-	Word      Word
+	Words     []Word
 }
