@@ -6,7 +6,6 @@ import (
 
 type NmUserDeck struct {
 	gorm.Model
-	ID     uint `gorm:"primaryKey"`
 	UserID uint
 	DeckID uint
 }
