@@ -9,7 +9,7 @@ import (
 	"github.com/raulcbs/flipcard-api/controller"
 	"github.com/raulcbs/flipcard-api/database"
 	"github.com/raulcbs/flipcard-api/middleware"
-	"github.com/raulcbs/flipcard-api/model"
+	"github.com/raulcbs/flipcard-api/migration"
 )
 
 func main() {
@@ -20,13 +20,7 @@ func main() {
 
 func loadDatabase() {
 	database.Connect()
-	// * create tables and columns
-	// ! the order it's important
-	database.Database.AutoMigrate(&model.User{})
-	database.Database.AutoMigrate(&model.Deck{})
-	database.Database.AutoMigrate(&model.Card{})
-	database.Database.AutoMigrate(&model.Word{})
-	database.Database.AutoMigrate(&model.NmUserDeck{})
+	migration.Migration()
 }
 
 func loadEnv() {
