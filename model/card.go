@@ -6,8 +6,7 @@ import (
 
 type Card struct {
 	gorm.Model
-	Front  string `gorm:"not null" json:"front"`
-	Back   string `gorm:"not null" json:"back"`
+	Front  string `gorm:"not null"`
+	Back   string `gorm:"not null"`
 	DeckID uint
-	Words  []Word
 }

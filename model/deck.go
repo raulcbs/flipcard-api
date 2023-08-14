@@ -20,10 +20,11 @@ func (deck *Deck) Save() (*Deck, error) {
 	return deck, nil
 }
 
-func (deck *Deck) GetAll() (*Deck, error) {
-	err := database.Database.Preload("NmUserDecks").Find(&deck).Error
+func (deck *Deck) GetAll() ([]Deck, error) {
+	var decks []Deck
+	err := database.Database.Find(&decks).Error
 	if err != nil {
-		return &Deck{}, err
+		return nil, err
 	}
-	return deck, nil
+	return decks, nil
 }
